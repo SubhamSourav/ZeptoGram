@@ -5,7 +5,6 @@ import PostWidget from "./PostWidget";
 
 const PostsWidget = ({ userId, isProfile = false }) => {
   const dispatch = useDispatch();
-  // const posts = useSelector((state) => state.posts);
   const posts = useSelector((state) => state.posts).slice(0).reverse().map(ele=>{
     return ele;
   })
@@ -50,12 +49,12 @@ const PostsWidget = ({ userId, isProfile = false }) => {
           lastName,
           description,
           location,
-          picturePath,
-          userPicturePath,
+          photo,
+          userPicture,
           likes,
-          comments,
-        }) => (
-          <PostWidget
+        }) => {
+          const picturePath = photo.secure_url;
+          return <PostWidget
             key={_id}
             postId={_id}
             postUserId={userId}
@@ -63,11 +62,10 @@ const PostsWidget = ({ userId, isProfile = false }) => {
             description={description}
             location={location}
             picturePath={picturePath}
-            userPicturePath={userPicturePath}
+            userPicturePath={userPicture}
             likes={likes}
-            comments={comments}
           />
-        )
+        }
       )}
     </>
   );

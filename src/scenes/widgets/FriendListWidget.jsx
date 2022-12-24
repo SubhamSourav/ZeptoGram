@@ -9,7 +9,7 @@ const FriendListWidget = ({ userId }) => {
   const dispatch = useDispatch();
   const { palette } = useTheme();
   const token = useSelector((state) => state.token);
-  const friends = useSelector((state) => state.user.friends);
+  const friends = useSelector((state) => state.friends);
 
   const getFriends = async () => {
     const response = await fetch(
@@ -20,12 +20,13 @@ const FriendListWidget = ({ userId }) => {
       }
     );
     const data = await response.json();
+    console.log(data);
     dispatch(setFriends({ friends: data }));
   };
 
   useEffect(() => {
     getFriends();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []); // esolint-disable-line react-hooks/exhaustive-deps
 
   return (
     <WidgetWrapper>
@@ -44,7 +45,7 @@ const FriendListWidget = ({ userId }) => {
             friendId={friend._id}
             name={`${friend.firstName} ${friend.lastName}`}
             subtitle={friend.occupation}
-            userPicturePath={friend.picturePath}
+            userPicturePath={friend.PicUrl}
           />
         ))}
       </Box>

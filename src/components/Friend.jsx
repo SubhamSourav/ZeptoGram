@@ -11,7 +11,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
   const navigate = useNavigate();
   const { _id } = useSelector((state) => state.user);
   const token = useSelector((state) => state.token);
-  const friends = useSelector((state) => state.user.friends);
+  const friends = useSelector((state) => state.friends);
 
   const { palette } = useTheme();
   const primaryLight = palette.primary.light;
@@ -46,7 +46,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
             // navigate(0);
           }}
         >
-          <Typography
+        <Typography
             color={main}
             variant="h5"
             fontWeight="500"
@@ -58,7 +58,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
             }}
           >
             {name}
-          </Typography>
+        </Typography>
           <Typography color={medium} fontSize="0.75rem">
             {subtitle}
           </Typography>

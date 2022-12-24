@@ -19,6 +19,8 @@ import {
     const dark = palette.neutral.dark;
     const medium = palette.neutral.medium;
     const main = palette.neutral.main;
+
+    const friends = useSelector((state)=>state.friends);
   
     const getUser = async () => {
       const response = await fetch(`http://localhost:3001/users/${userId}`, {
@@ -42,7 +44,6 @@ import {
       lastName,
       location,
       occupation,
-      friends,
     } = user;
   
     return (
