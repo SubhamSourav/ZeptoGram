@@ -23,7 +23,7 @@ import {
     const friends = useSelector((state)=>state.friends);
   
     const getUser = async () => {
-      const response = await fetch(`http://localhost:3001/api/users/${userId}`, {
+      const response = await fetch(`${process.env.REACT_APP_API}/api/users/${userId}`, {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },
       });

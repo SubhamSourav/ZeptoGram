@@ -13,14 +13,14 @@ const FriendListWidget = ({ userId }) => {
 
   const getFriends = async () => {
     const response = await fetch(
-      `http://localhost:3001/api/users/${userId}/friends`,
+      `${process.env.REACT_APP_API}/api/users/${userId}/friends`,
       {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },
       }
     );
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     dispatch(setFriends({ friends: data }));
   };
 

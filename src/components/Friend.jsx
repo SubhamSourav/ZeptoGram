@@ -23,7 +23,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
 
   const patchFriend = async () => {
     const response = await fetch(
-      `http://localhost:3001/api/users/${_id}/${friendId}`,
+      `https://zeptogramapi.onrender.com/api/users/${_id}/${friendId}`,
       {
         method: "PATCH",
         headers: {
